@@ -48,7 +48,7 @@ const Page = () => {
     } catch (error:any) {
       console.log("Error while registering user", error);
       toast({
-        title: error.response.data.message,
+        title: error.response.data.message|| "Unexpected Error Occured",
         variant: "destructive",
       })
     } finally {
