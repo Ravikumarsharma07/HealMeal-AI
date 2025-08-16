@@ -15,7 +15,7 @@ const MealPlanCard = ({
   useEffect(() => {
     const mealNames: string[] = Object.keys(meals);
     setMeal(mealNames);
-  }, [patients]);                                         
+  }, [patients, meals]);                                         
   return (
     <div className="p-2 bg-white rounded-lg border border-gray-200">
       {/* header of meal's card */}
