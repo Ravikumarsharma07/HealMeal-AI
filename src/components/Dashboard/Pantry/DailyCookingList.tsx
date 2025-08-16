@@ -1,12 +1,15 @@
 import { ChefHat } from "lucide-react";
 import MealPlanCard from "./MealPlanCard";
-import { useEffect, useState } from "react";
 import { Patient } from "@/types/patients";
 
-const DailyCookingList = ({ patients, meals }: { patients: Patient[], meals:any }) => {
-
-
-  if(patients.length < 1) return;
+const DailyCookingList = ({
+  patients,
+  meals,
+}: {
+  patients: Patient[];
+  meals: any;
+}) => {
+  if (patients.length < 1) return;
   return (
     <section className="p-2 bg-white rounded-lg">
       <div className="grid grid-flow-col w-max">
@@ -19,11 +22,26 @@ const DailyCookingList = ({ patients, meals }: { patients: Patient[], meals:any 
         </p>
       </div>
 
-      <div className="space-y-4 mt-4">
-          <MealPlanCard mealTime={"Morning"} meals={meals.morning} patients={patients} />
-          <MealPlanCard mealTime={"Evening"} meals={meals.evening} patients={patients} />
-          <MealPlanCard mealTime={"Night"} meals={meals.night} patients={patients} />
-      </div>
+      {!meals && <p className="text-sm text-black/70">Unable to fetch meals</p>}
+      {meals && (
+        <div className="space-y-4 mt-4">
+          <MealPlanCard
+            mealTime={"Morning"}
+            meals={meals.morning}
+            patients={patients}
+          />
+          <MealPlanCard
+            mealTime={"Evening"}
+            meals={meals.evening}
+            patients={patients}
+          />
+          <MealPlanCard
+            mealTime={"Night"}
+            meals={meals.night}
+            patients={patients}
+          />
+        </div>
+      )}
     </section>
   );
 };

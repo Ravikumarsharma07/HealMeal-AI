@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
       afterFiles: [
         {
           source: '/api/:path*',
-          destination: 'https://healmeal-ai-backend.onrender.com/api/:path*',
+          destination: 'https://healmeal-ai-backend.onrender.com/api/:path*', 
+          // for development: 'http://localhost:5000/api/:path*',
+          // for production: 'https://healmeal-ai-backend.onrender.com/api/:path*' 
         },
       ],
       fallback: [],

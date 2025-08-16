@@ -1,4 +1,3 @@
-// src/pages/ContactUs.tsx
 import React from 'react';
 
 const ContactUs: React.FC = () => {
@@ -34,7 +33,6 @@ const ContactUs: React.FC = () => {
             ></textarea>
           </div>
           <button
-            type="submit"
             className="w-full bg-safetyGreen-dark text-white py-2 rounded-lg hover:bg-green-700 transition"
           >
             Send Message

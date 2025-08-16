@@ -42,6 +42,7 @@ const Page = () => {
       night:{}
     };
     patients.forEach((patient) => {
+      if(!patient.dietPlan) return
       if (!meals.morning[patient.dietPlan.morning.name]) {
         meals.morning[patient.dietPlan.morning.name] = 1;
       } else {
@@ -81,7 +82,7 @@ const Page = () => {
     }
   };
   const fetchPatients = async () => {
-    try {
+    try { 
       setError(null)
       setIsLoading(true)
       const { data } = await axios.get("/api/patients", {

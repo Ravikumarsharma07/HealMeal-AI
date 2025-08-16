@@ -18,18 +18,18 @@ const Features = () => {
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-safetyGreen-dark">
             <h3 className="text-xl font-bold text-safetyGreen-dark">
-              Track Patient's Records 
+              AI generated meals
             </h3>
             <p className="mt-4 text-gray-700">
-              Simplify order management with an automated system.
+              Generate personalized meals based on patient preferences and pantry items.
             </p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-safetyGreen-light">
             <h3 className="text-xl font-bold text-safetyGreen-dark">
-              Real-Time Analytics
+              Real-time Analytics
             </h3>
             <p className="mt-4 text-gray-700">
-              Get insights into food delivery, waste, and inventory.
+              Get insights into Daily Cooking List and inventory.
             </p>
           </div>
         </div>

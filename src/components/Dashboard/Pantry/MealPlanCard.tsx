@@ -15,7 +15,7 @@ const MealPlanCard = ({
   useEffect(() => {
     const mealNames: string[] = Object.keys(meals);
     setMeal(mealNames);
-  }, [patients]);
+  }, [patients]);                                         
   return (
     <div className="p-2 bg-white rounded-lg border border-gray-200">
       {/* header of meal's card */}
@@ -48,7 +48,7 @@ const MealPlanCard = ({
       {/* meal details and patients details (main content) */}
       <div className="grid md:grid-cols-2 gap-10">
         <div className="flex flex-col gap-2 mt-6">
-          {meal?.map((meal: any) => {
+          {meal.map((meal: any) => {
             return (
               <div
                 key={meal}
