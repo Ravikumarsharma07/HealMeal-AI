@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { LogOut, User, Activity, Hospital } from 'lucide-react';
 import axios from 'axios';
+import { useToast } from '@/hooks/use-toast';
 
 interface NavbarProps {
   role: string;
@@ -13,6 +14,8 @@ const Navbar: React.FC<NavbarProps> = ({ role, email, hospitalID }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleBtn = useRef<HTMLDivElement>(null);
   const dropdown = useRef<HTMLDivElement>(null);
+
+  const {toast} = useToast()
 
   const handleClickOutside = (event: MouseEvent) => {
     event.stopPropagation();
@@ -37,16 +40,12 @@ const Navbar: React.FC<NavbarProps> = ({ role, email, hospitalID }) => {
     e.stopPropagation();
     try {
       await axios.post("/api/logout", {}, { withCredentials: true });
-      
-      // Show success message (you can replace this with your toast implementation)
-      console.log("Successfully logged out");
-      
       window.location.href = "/login";
     } catch (error) {
-      console.log(error);
-      
-      // Show error message (you can replace this with your toast implementation)
-      console.error("Unexpected error occurred");
+      toast({
+        title: "Error while logging out",
+        variant: "destructive",
+      })
     }
   };
 
@@ -72,7 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({ role, email, hospitalID }) => {
               <span className="text-white text-sm font-medium">Live System</span>
             </div>
             
-            {/* User Profile Dropdown */}
+            {/* User Profile Dropdown button*/}
             <div className="relative">
               <div
                 ref={toggleBtn}
@@ -83,6 +82,7 @@ const Navbar: React.FC<NavbarProps> = ({ role, email, hospitalID }) => {
               </div>
               
               
+            {/* User Profile Details Dropdown and logout button */}
               <div
                 ref={dropdown}
                 className={`absolute top-16 right-0 ${
